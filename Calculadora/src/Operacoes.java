@@ -1,6 +1,5 @@
 public class Operacoes {
 
-
     public double adicao(double a, double b){
         return a + b;
     }

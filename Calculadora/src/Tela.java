@@ -10,7 +10,7 @@ public class Tela extends JFrame{
     private JButton[] botoes;
     private JScrollPane scrollVisor;
 
-    public Tela(){
+    public Tela(Calculadora calculadora){
         painel = new JPanel(new BorderLayout(10, 10));
         painel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         visor = new JTextArea(2, 25);
@@ -28,11 +28,16 @@ public class Tela extends JFrame{
 
 
         for (int i = 0; i < botoes.length; i++){
-            botoes[i] = new JButton(botoesTexto[i]);
+            String texto = botoesTexto[i];
+            botoes[i] = new JButton(texto);
             botoes[i].setBackground(Color.lightGray);
             botoes[i].setForeground(Color.black);
             botoes[i].setFont(botoes[i].getFont().deriveFont(15f));
             botoes[i].setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, new Color(60, 60, 60), Color.DARK_GRAY));
+
+            final String comando = texto;
+            botoes[i].addActionListener(evento -> calculadora.processarComando(comando));
+
             painelBotoes.add(botoes[i]);
         }
 
@@ -57,10 +62,17 @@ public class Tela extends JFrame{
         visor.setLineWrap(true);
         visor.setWrapStyleWord(true);
         visor.setEditable(false);
+        visor.setFont(visor.getFont().deriveFont(20f));
+
         painelBotoes.setBackground(Color.darkGray);
 
         painel.add(scrollVisor, BorderLayout.NORTH);
         painel.add(painelBotoes, BorderLayout.CENTER);
 
     }
+
+    public JTextArea getVisor() {
+        return visor;
+    }
+
 }
