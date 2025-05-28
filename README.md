@@ -2,6 +2,8 @@
 
 Este projeto que consiste na criação de uma calculadora com interface gráfica em Java, que foi desenvolvido como parte de uma atividade da disciplina POO 2 (Programação Orientada a Objetos II).
 
+<img src="screenshotcalculadora.png" alt="Calculadora" width="500"/>
+
 ## 📋 Funcionalidades
 
 A calculadora suporta as seguintes operações:
